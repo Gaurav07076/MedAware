@@ -138,10 +138,11 @@ nav.sticky{
 }
 
 .home{
-    margin-top: 200px;
+    margin-left: 40px;
+    margin-top: 50px;
     width:100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content:space-around;
    
 }
 .subcontainer{ 
@@ -206,6 +207,7 @@ nav.sticky{
 }
 .membercontainer{
     height: auto;
+    margin-top: 50px;
     padding-left: 150px;
     margin-bottom: 70px;
 }
