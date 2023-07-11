@@ -1,0 +1,213 @@
+:root{
+    --mainred: #DA1212;
+    --mainblue: #041562; 
+    --bg-black: #232b2b;
+    --fontcolor:rgb(240, 239, 238);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+body{
+    background-color: var(--bg-black);
+    height: 100vh;
+}
+nav{
+    display: flex;
+    position: relative;
+    align-items: center;
+    height: 150px;
+    width: 90%;
+    justify-content: center;
+    border-bottom: 2px solid var(--mainred);
+    margin: 0 70px;
+  
+}
+.navcontainer a{
+    text-decoration: none;
+}
+.logocontainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.logocontainer img{
+    width: 70px;
+    height:70px;
+
+}
+.logo{
+    font-size: 40px;
+    font-weight:900;
+    color: var(--fontcolor);
+    font-style: italic;
+}
+.button{
+    position: absolute;
+    left: 40px;
+    top: 40px;
+    display: flex;
+    align-items: center;
+    
+    padding:10px 15px ;
+    border:1px solid white;
+    border-radius: 4px;  
+    background-color: var(--mainred);
+    max-width: 255px;
+    margin-top: 20px;
+    color: var(--fontcolor);
+    font-size: 20px;
+    font-weight:600;
+    transition: all 0.4s ease-in-out;
+}
+.button:hover{
+    transition: all 0.4s ease-in-out;
+    
+    scale: 1.02;
+    border:2px solid white;
+}
+.content{
+    margin: 40px 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.headerred{
+    font-size: 45px;
+    font-weight:800; 
+    color:  var(--fontcolor);
+    
+}
+.headerred> span:nth-child(1){
+    font-style: italic;
+    text-shadow: 2px 2px 70px #4b4d4d;
+    background: -webkit-linear-gradient(0.30turn,var(--mainred), #c04848);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+/* code for green text colour */
+.headergreen{
+    font-size: 45px;
+    font-weight:800; 
+    color:  var(--fontcolor);
+    
+}
+.headergreen> span:nth-child(1){
+    font-style: italic;
+    text-shadow: 2px 2px 70px #4b4d4d;
+    background: -webkit-linear-gradient(0.30turn,#98d89f, #0f6f1a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+/* code for green text colour  ENDS*/
+
+.pointcontainer,.subtext{
+    margin-top: 40px;
+    font-size: 20px;
+    font-weight:500;
+    color:  var(--fontcolor);
+    line-height: 30px;
+}
+
+.pointcontainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 60px 150px 0 150px;
+    padding-bottom: 30px;
+    border-bottom: 1.5px solid var(--mainred);
+    align-items: center;
+}
+/* code for green text colour */
+.pointcontainergreen{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 60px 150px 0 150px;
+    padding-bottom: 30px;
+    border-bottom: 1.5px solid #0f6f1a;
+    align-items: center;
+}
+/* code for green text colour  ENDS*/
+.linksred{
+    font-size: 17px;
+    margin:20px 0;
+    align-items: center;
+    text-align: center;
+}
+.linksred a{
+    text-decoration: none;
+    text-shadow: 2px 2px 70px #4b4d4d;
+    background: -webkit-linear-gradient(0.30turn,var(--mainred), #c04848);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+}
+
+.linksred a:after{
+    content: " ";
+    position:absolute;
+    background: -webkit-linear-gradient(0.30turn,var(--mainred), #c04848);
+    height: 2px;
+    width: 0;
+    left:0;
+    bottom: -7px;
+    transition: 0.5s;
+
+}
+.linksred a:hover{
+    transition: 0.5s;
+    color: #ffffff; 
+    font-weight: 600;
+    
+}
+
+.linksred a:hover:after{
+    width: 100%;
+    transition: 0.5s;
+
+}
+
+/* code for green text colour */
+.linksgreen{
+    font-size: 17px;
+    margin:20px 0;
+    align-items: center;
+    text-align: center;
+}
+.linksgreen a{
+    text-decoration: none;
+    text-shadow: 2px 2px 70px #4b4d4d;
+    background: -webkit-linear-gradient(0.30turn,#98d89f, #0f6f1a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+}
+
+.linksgreen a:after{
+    content: " ";
+    position:absolute;
+    background: -webkit-linear-gradient(0.30turn,#98d89f, #0f6f1a);
+    height: 2px;
+    width: 0;
+    left:0;
+    bottom: -7px;
+    transition: 0.5s;
+
+}
+.linksgreen a:hover{
+    transition: 0.5s;
+    color: #ffffff; 
+    font-weight: 600;
+    
+}
+
+.linksgreen a:hover:after{
+    width: 100%;
+    transition: 0.5s;
+
+}
+/* code for green text colour  ENDS*/
