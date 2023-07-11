@@ -18,7 +18,6 @@
 }
 body{
     background-color: var(--bg-light);
-    height: 180vh;
     display: flex;
     flex-direction: column;
 }
@@ -222,7 +221,7 @@ nav.sticky{
     width: 100%;
 }
 .formcontainer{
-     height: 120vh;
+     
      padding-left: 70px;
      margin-top: 200px;
 }
@@ -340,16 +339,16 @@ select{
     color:aqua;
 }
 footer{
+    display:flex;
+    align-items:center;
+    justify-content: center;
     position: relative;
     margin-top: 70px;
     background:#111;
-    height:400px;
+    height:280px;
     width:100vw;
-    font-family: "";
-    padding-top:20px;  
     color:#fff;
-
-    
+       
 }
 .footer-bottom{
     
