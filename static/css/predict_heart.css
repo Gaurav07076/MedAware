@@ -1,8 +1,13 @@
 :root{
     --mainred: #DA1212;
     --mainblue: #041562; 
+    --maindgreen:#40a879;
+    --maingreen:#50CB93;
     --bg-black: #232b2b;
+    --mainpurple:#7353B0;
+    --bg-light :#DCE1DE;
     --fontcolor:rgb(240, 239, 238);
+    --fontcolordark: #1F2421;
 }
 *{
     margin: 0;
@@ -11,8 +16,8 @@
     font-family: 'Montserrat', sans-serif;
 }
 body{
-    background-color: var(--bg-black);
-    height: 100vh;
+    background-color: var(--bg-light);
+   
 }
 nav{
     display: flex;
@@ -42,7 +47,7 @@ nav{
 .logo{
     font-size: 40px;
     font-weight:900;
-    color: var(--fontcolor);
+    color: var(--fontcolordark);
     font-style: italic;
 }
 .button{
@@ -58,7 +63,7 @@ nav{
     background-color: var(--mainred);
     max-width: 255px;
     margin-top: 20px;
-    color: var(--fontcolor);
+    color: var(--fontcolordark);
     font-size: 20px;
     font-weight:600;
     transition: all 0.4s ease-in-out;
@@ -78,7 +83,7 @@ nav{
 .headerred{
     font-size: 45px;
     font-weight:800; 
-    color:  var(--fontcolor);
+    color:  var(--fontcolordark);
     
 }
 .headerred> span:nth-child(1){
@@ -92,7 +97,7 @@ nav{
 .headergreen{
     font-size: 45px;
     font-weight:800; 
-    color:  var(--fontcolor);
+    color:  var( --fontcolordark);
     
 }
 .headergreen> span:nth-child(1){
@@ -108,7 +113,7 @@ nav{
     margin-top: 40px;
     font-size: 20px;
     font-weight:500;
-    color:  var(--fontcolor);
+    color:  var( --fontcolordark);
     line-height: 30px;
 }
 
@@ -211,3 +216,101 @@ nav{
 
 }
 /* code for green text colour  ENDS*/
+
+
+/* footer code starts here */
+footer{
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    position: relative;
+    margin-top: 80px;
+    background:#111;
+    height:280px;
+    width:100vw;
+    font-family: "";
+    color:#fff;
+    
+}
+.footer-content{
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    
+    flex-direction: column;
+    text-align: center;
+}
+
+.footer-bottom{
+    background: #000;
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    padding: 20px 0;
+    text-align: center;
+}
+
+
+.footer-content h3{
+    font-size: 22px;
+    font-weight:400;
+    color:  var(--bg-light);
+    
+}
+
+.footer-content p{
+    max-width: 500px;
+    margin: 20px auto;
+    line-height: 28px;
+    font-size:14px;
+
+}
+.github{ 
+    width:20px;
+    height: 20px;
+}
+.socials{
+    list-style: none;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    margin:1rem 0 3rem 0;
+
+}
+.socials li{
+    margin: 0 10px;
+}
+.socials a{
+    text-decoration: none;
+    color: #fff;
+
+}
+.socials a i{
+    font-size:1.1rem;
+}
+.socials a:hover i{
+    color:aqua;
+}
+
+
+.footer-bottom p{
+    font-size:14px;
+    word-spacing:2px;
+    text-transform:capitalize;
+
+}
+.footer-bottom span{
+    
+    text-transform: uppercase;
+    opacity: 1;
+    font-weight: 200;
+}
+.footer-bottom span a{
+    text-decoration: none;
+    color: #fff;
+    opacity: 1;
+}
+.footer-bottom span a:hover{
+    color: #fff;
+    opacity: .7;
+}

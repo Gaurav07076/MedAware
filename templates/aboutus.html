@@ -24,8 +24,9 @@
         <div class="navElemContainers middlenav">
             <div class="navItem"><a href="{{url_for('main')}}">Home</a></div>
         </div>
-        <div class="navElemContainers">
+        <div class="navElemContainers lastnav">
             <div class="button"><a href="{{url_for('logout')}}">Log Out</a></div>
+            <div class="button"><a href="{{url_for('main')}}">Back</a></div>
         </div>
     </nav>
 
@@ -93,44 +94,22 @@
                 </div>
             </div>
         </div>
-        <div class="member">
-            <div class="member_container">
-                <div class="number two">4</div>
-                <div class="verticalline">
-                    <div class="member_header">Sahil Kumar</div>
-                    <div class="member_subtext">
-                        <a href="https://github.com/sahilkrRaj">Connect on Github</a>
-                        <div class="email">Email 2041011173.yadavrajsahil@gmail.com</div>
-                        <a href="#">connect on LinkedIn</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="member">
-            <div class="member_container">
-                <div class="number two">5</div>
-                <div class="verticalline">
-                    <div class="member_header">Shubham Kumar Singh</div>
-                    <div class="member_subtext">
-                        <a href="https://github.com/ShubhamKumarSingh123">Connect on Github</a>
-                        <div class="email">Email 2041019381.shubhamkumarsingh@gmail.com</div>
-                        <a href="https://www.linkedin.com/in/shubham-singh-03b34b238/">connect on LinkedIn</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
+          
         
     </div>
     <footer>
         <div class="footer-content">
             <h3>MedAware.co</h3>
-            <h4>"Stay informed, stay ahead - let our disease check guide you through life's uncertain thread."</h4>
+            <p>"Stay informed, stay ahead - let our disease check guide you through life's uncertain thread."</p>
+            <p>
+              Want to contribute ? 
+              <img class="github" src="{{url_for('static',filename='../static/resources/github-4.png')}}">
+            </p>
         </div>
         <div class="footer-bottom">
-          <p>copyright &copy;2023. designed by <span><a href="https://github.com/Gaurav07076">Gaurav, </a></span><span><a href="https://github.com/samyak269"> Samyak, </a></span><span><a href="https: //github.com/The-Prithwiraj06">PRITHWI, </a ></span><span><a href="https://github.com/sahilkrRaj">SAHIL &</a ></span> <span><a href="https://github.com/ShubhamKumarSingh123">SHUBHAM</a ></span></p>
+          <p>copyright &copy;2023. designed by <span><a href="https://github.com/Gaurav07076">Gaurav, </a></span><span><a href="https://github.com/samyak269"> Samyak & </a></span><span><a href=https://github.com/VaishaliRajpal28>PRITHWI. </a ></span></p>
         </div>
-    
-    
     </footer>
 
     <script type="text/javascript">

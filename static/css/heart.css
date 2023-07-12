@@ -19,7 +19,6 @@
 }
 body{
     background-color: var(--bg-light);
-    height: 190vh;
     display: flex;
     flex-direction: column;
 }
@@ -291,14 +290,24 @@ select{
     flex-direction: column;
     justify-content: flex-start;
 } 
+.footer-content{
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    
+    flex-direction: column;
+    text-align: center;
+}
 footer{
+    display:flex;
+    align-items:center;
+    justify-content: center;
     position: relative;
     margin-top: 70px;
     background:#111;
-    height:400px;
+    height:280px;
     width:100vw;
     font-family: "";
-    padding-top:20px;  
     color:#fff;
     
 }
@@ -310,13 +319,7 @@ footer{
     padding: 20px 0;
     text-align: center;
 }
-.footer-content{
-    display:flex;
-    align-items:center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-}
+
 
 
 .footer-content h3{
@@ -333,7 +336,10 @@ footer{
     font-size:14px;
 
 }
-
+.github{ 
+    width:20px;
+    height: 20px;
+}
 .socials{
     list-style: none;
     display: flex;
