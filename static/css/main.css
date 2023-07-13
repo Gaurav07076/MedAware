@@ -119,6 +119,71 @@ nav.sticky{
     transition: 0.5s;
 
 }
+
+
+
+
+.growing-search {
+    padding: 5px 5px 5px 5px;
+    border-radius: 15px;
+    background: #fff;
+  }
+  
+  .growing-search div {
+    display: inline-block;
+    font-size: 15px;
+    margin:0 4px;
+  }
+  
+  .growing-search .input input {
+    margin-right: 0;
+    border: none;
+    font-size: inherit;
+    transition: width 200ms;
+    padding-top: 2px;
+    padding-left: 2px;
+    padding-bottom: 2px;
+    width: 55px;
+    color: #aaa;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .growing-search .input input:focus {
+    width: 150px;
+  }
+  
+  .growing-search .submit button {
+    margin-left: 0;
+    border-radius: 10px;
+    width: 40px;
+    height: 30px;
+    border: none;
+    font-size: 1.15em;
+    margin-right: -3px;
+    color: #efefef;
+    background-color: var(--maingreen);
+    padding-top: 2px;
+    padding-bottom: 2px;
+    transition: color 200ms;
+  }
+  
+  .growing-search .input input:hover, .growing-search .submit button:hover {
+    cursor: pointer;
+    scale: 1.04;
+  }
+  
+  .growing-search .input input:focus, .growing-search .submit button:focus {
+    outline: none;
+    
+  }
+  
+  .growing-search .submit button:hover {
+    scale: 1.09;
+    transition: all 0.9s ease-in-out;
+    color: var(--fontcolordark);
+  }
+
+
 .searchContainer{
     width:200px;
     height:40px;
@@ -144,6 +209,7 @@ nav.sticky{
 
 }
 .searchlabel{
+
     color: var(--fontcolordark);
     margin-left: 15px;
     font-size:16px;
@@ -158,9 +224,14 @@ nav.sticky{
     margin-left: 4%;
     background-color: var(--maindgreen);
     border-radius: 8px;
+    transition: all 0.5s ease-in-out;
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+.diplay_none{
+    transition: all 0.9s ease-in-out;
+    display: none;
 }
 .searchNavBar{
     width: 100%;
