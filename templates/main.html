@@ -27,11 +27,39 @@
                 <div class="navItem"><a href="{{url_for('main')}}">Home</a></div>
                 <div class="navItem"><a href="#blog">Blogs</a></div>
                 <div class="navItem"><a href="{{url_for('aboutus')}}">About Us</a></div>
+                <!-- <div class="searchContainer ">
+                    <input type="text" class="searchlabel" >Search</input>
+                    <div class="searchbtn"></div>
+                </div> -->
+
+                <div class="growing-search">
+                    <div class="input ">
+                      <input id="searchinput" required type="text" name="search"/>
+                    </div><!-- Space hack -->
+                    <div class="submit">
+                      <button id="search" type="submit" name="go_search">
+                        <span class="fa fa-search"></span>
+                      </button>
+                    </div>
+                </div>
+
             </div>
-            <div class="navElemContainers">
+            <div class="navElemContainers endnav">
                 <div class="button"><a href="{{url_for('logout')}}">Log Out</a></div>
             </div>
         </nav>
+
+        <div class="searchresult diplay_none">
+            <div class="searchNavBar">
+                <div class="searchHeader">Search with Rapid API</div>
+                <div class="button">Back</div>
+                
+            </div>
+            <div class="dividerthingreen"></div>
+            <div class="inputval">fwfggeger</div>
+        </div>
+
+        
         <div class="home">
             <div class="subcontainer text">
                 <div class="headerline">
@@ -205,6 +233,28 @@
                 var nav = document.querySelector("nav"); 
                 nav.classList.toggle("sticky",window.scrollY > 0); 
             }) 
+          </script>
+          <!-- <script src="./js/search.js" type="module"></script> -->
+          <script>
+
+                const button = document.querySelector("#search");   
+                const displaybox = document.querySelector(".searchresult");
+                var searchinput = document.querySelector("#searchinput").value;
+                console.log(searchinput);
+                button.addEventListener('click',function(){
+                    
+                    if(searchinput != null || searchinput != undefined){
+                        displaybox.classList.toggle('diplay_none');
+                       console.log(searchinput);
+                        document.querySelector(".inputval").value = searchinput;
+                    }
+
+                })
+
+
+
+
+
           </script>
     </body>
     </body>
