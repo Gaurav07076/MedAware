@@ -152,7 +152,7 @@ def email_heart_pos():
 def email_heart_neg():
      if request.method=='POST':
           msg = Message("Heart_results",sender='medaware@demo.co',recipients=[username])
-          msg.body = "unhealthy"
+          msg.body = "Oopss!! There are chances you might be afflicted with a heart disease . Go get your clinical tests done and consult with your doctor asap. There is no need to panic. It is just a prediction which may be even be incorrect."
           mail.send(msg)
           return render_template('predict_heart.html', pred = 1, message="Mail sent")    
 
