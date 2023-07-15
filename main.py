@@ -2,6 +2,7 @@ import numpy as np
 import pickle
 from flask import Flask, url_for, render_template, request, redirect, session, jsonify
 from flask_sqlalchemy import SQLAlchemy
+from flask_mail import Mail,Message
 import base64
 import tensorflow as tf
 from PIL import Image 
@@ -14,7 +15,14 @@ import h5py
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+app.config['MAIL_SERVER']='smtp.gmail.com'
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USERNAME'] = 'gauravvermaa07076@gmail.com'
+app.config['MAIL_PASSWORD'] = 'reiqgeaklkpiadxe'
+app.config['MAIL_USE_TLS'] = False
+app.config['MAIL_USE_SSL'] = True
 db = SQLAlchemy(app)
+mail = Mail(app)
 
 
 heart_model = pickle.load(open('model/heart_disease_model.pkl','rb'))
@@ -64,11 +72,33 @@ def login():
         u = request.form['username']
         p = request.form['password']
         data = User.query.filter_by(username=u, password=p).first()
+        global username
+        if data: username = data.username
         if data is not None:
             session['logged_in'] = True
             return redirect(url_for('main'))
-        return render_template('login.html', message="Incorrect Details")
+        return render_template('login.html', message="Incorrect Details! If not registered.. Please first do so!")
 
+@app.route('/register/', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        try:
+            password=request.form['password']
+            cpassword=request.form['cpassword']
+            if password==cpassword:
+                db.session.add(User(username=request.form['username'], password=request.form['password']))
+                db.session.commit()
+                return redirect(url_for('login'))
+            
+            else:
+                return redirect(url_for('register'))
+
+            
+            
+        except:
+            return render_template('register.html', message="User Already Exists")
+    else:
+        return render_template('register.html')
 
 
 @app.route('/main')
@@ -95,26 +125,6 @@ def diabetes():
 def ASD():
 	return(render_template("ASD.html"))
 
-@app.route('/register/', methods=['GET', 'POST'])
-def register():
-    if request.method == 'POST':
-        try:
-            password=request.form['password']
-            cpassword=request.form['cpassword']
-            if password==cpassword:
-                db.session.add(User(username=request.form['username'], password=request.form['password']))
-                db.session.commit()
-                return redirect(url_for('login'))
-            
-            else:
-                return redirect(url_for('register'))
-
-            
-            
-        except:
-            return render_template('register.html', message="User Already Exists")
-    else:
-        return render_template('register.html')
     
 @app.route("/predict_heart",methods= ['POST', 'GET'])
 def predictPage_heart():
@@ -123,11 +133,28 @@ def predictPage_heart():
             to_predict_dict = request.form.to_dict()
             to_predict_list = list(map(float, list(to_predict_dict.values())))
             pred = predict(heart_model,to_predict_list, to_predict_dict)
+            print(pred)
     except:
-        message = "Please enter valid Data"
+        message = "Please enter valid Data! You may have missed some data to be filled!"
         return render_template("heart.html", message = message)
 
     return render_template('predict_heart.html', pred = pred)
+
+@app.route("/email_heart",methods= ['POST', 'GET'])
+def email_heart_pos():
+     if request.method=='POST':
+        msg = Message("Heart_results",sender='medaware@demo.co',recipients=[username])
+        msg.body = "Great! Your heart looks to be in great condition! Here is what you can do to continue having a healthy heart\n 1. Take a 10-minute walk. If you don't exercise at all, a brief walk is a great way to start.\n\n2. Give yourself a lift. Lifting a hardcover book or a two-pound weight a few times a day can help tone your arm muscles.\n\n3. Eat one extra fruit or vegetable a day.\n\n4. Make breakfast count. Start the day with some fruit and a serving of whole grains, like oatmeal, bran flakes, or whole-wheat toast.\n\n5. Have a handful of nuts. Walnuts, almonds, peanuts, and other nuts are good for your heart.\n\n6. Sample the fruits of the sea. Eat fish or other types of seafood instead of red meat once a week. It's good for the heart, the brain, and the waistline.\n\n7. Breathe deeply. Try breathing slowly and deeply for a few minutes a day. It can help you relax.\n\n8. Wash your hands often. Scrubbing up with soap and water often during the day is a great way to protect your heart and health. The flu, pneumonia, and other infections can be very hard on the heart.\n\n9. Count your blessings. Taking a moment each day to acknowledge the blessings in your life is one way to start tapping into other positive emotions. These have been linked with better health, longer life, and greater well-being, just as their opposites — chronic anger, worry, and hostility."     
+        mail.send(msg)
+        return render_template('predict_heart.html', pred = 0, message="Mail sent")
+
+@app.route("/email_heart_neg",methods= ['POST', 'GET']) 
+def email_heart_neg():
+     if request.method=='POST':
+          msg = Message("Heart_results",sender='medaware@demo.co',recipients=[username])
+          msg.body = "unhealthy"
+          mail.send(msg)
+          return render_template('predict_heart.html', pred = 1, message="Mail sent")    
 
 @app.route("/predict_liver",methods= ['POST', 'GET'])
 def predictPage_liver():
@@ -137,7 +164,7 @@ def predictPage_liver():
             to_predict_list = list(map(float, list(to_predict_dict.values())))
             pred = predict(liver_model,to_predict_list, to_predict_dict)
     except:
-        message = "Please enter valid Data"
+        message = "Please enter valid Data! You may have missed some data to be filled!"
         return render_template("liver.html", message = message)
 
     return render_template('predict_liver.html', pred = pred)
@@ -152,7 +179,7 @@ def predictPage_ASD():
             print(to_predict_list)
             pred = predict(asd_model,to_predict_list, to_predict_dict)
     except:
-        message = "Please enter valid Data"
+        message = "Please enter valid Data! You may have missed some data to be filled!"
         return render_template("ASD.html", message = message)
 
     return render_template('predict_ASD.html', pred = pred)
@@ -167,7 +194,7 @@ def predictPage_diabetes():
             pred = predict(diabetes_model,to_predict_list, to_predict_dict)
             print(pred)
     except:
-        message = "Please enter valid Data"
+        message = "Please enter valid Data! You may have missed some data to be filled!"
         return render_template("diabetes.html", message = message)
 
     return render_template('predict_diabetes.html', pred = pred)

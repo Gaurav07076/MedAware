@@ -14,6 +14,15 @@
     <title>Document</title>
 </head>
 <body>
+    {% if message %}
+    <script>
+      let p = "{{message}}"
+      window.addEventListener('load', 
+        function() { 
+          alert(p);
+        }, false);
+    </script>
+    {% endif %}
     <nav>
         <div class="navcontainer">
             <a class="back button " href="{{ url_for('main') }}">Back to Home</a></div>
