@@ -14,6 +14,17 @@
     <title>Document</title>
 </head>
 <body>
+    {% if message %}
+    {{ pred }}
+    <script>
+      let p = "{{message}}"
+      window.addEventListener('load', 
+        function() { 
+          alert(p);
+        }, false);
+    </script>
+    {% endif %}
+    
     <nav>
         <div class="navcontainer">
             <a class="back button " href="{{ url_for('main') }}">Back to Home</a></div>
@@ -33,7 +44,11 @@
                 
             </div>
             <div class="linksred">
-                For more informatiion related to diagnosis and treatment tips you could follow the<a href="https://www.mayoclinic.org/diseases-conditions/heart-disease/diagnosis-treatment/drc-20353124" target="_blank"> link<sup>*</sup> </a>.
+                For more informatiion related to diagnosis and treatment tips you could follow the<a href="https://www.mayoclinic.org/diseases-conditions/heart-disease/diagnosis-treatment/drc-20353124" target="_blank"> link<sup>*</sup> </a>.<br>
+                Also if you want we can email you few tips by clicking the Email button...
+                <form action="{{ url_for('email_heart_neg') }}" method="POST">
+                    <button>Send email.</button>
+                </form>
             </div>
             
           
@@ -60,6 +75,15 @@
     <title>Document</title>
 </head>
 <body>
+    {% if message %}
+    <script>
+      let q = "{{message}}"
+      window.addEventListener('load', 
+        function() { 
+          alert(q);
+        }, false);
+    </script>
+    {% endif %}
     <nav>
         <div class="navcontainer">
             <a class="back button " href="{{ url_for('main') }}">Back to Home</a></div>
@@ -72,7 +96,7 @@
         </div>
     </nav>
     <div class="content">
-        <div class="headergreen">GREAT! you are in good <span>Health</span>.</div>
+        <div class="headergreen">GREAT! you heart is in good <span>Health</span>!!</div>
         <div class="subtext">
             Kudos! Your heart seems healthy. You could follow the below suggestions for further strengthening your heart : <br> 
             <div class="pointcontainergreen">
@@ -83,7 +107,11 @@
                 <div class="points">5. Control your cholesterol and blood pressure.</div>
             </div>
             <div class="linksgreen">
-                For more such related tips you could follow the<a href="https://www.health.harvard.edu/healthbeat/10-small-steps-for-better-heart-health" target="_blank"> link<sup>*</sup> </a>.
+                For more such related tips you could follow the<a href="https://www.health.harvard.edu/healthbeat/10-small-steps-for-better-heart-health" target="_blank"> link<sup>*</sup> </a>.<br>
+                Also if you want we can email you few tips by clicking the Email button...
+                <form action="{{ url_for('email_heart_pos') }}" method="POST">
+                    <button>Send email.</button>
+                </form>
             </div>
             
           

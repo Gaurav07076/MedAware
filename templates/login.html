@@ -59,6 +59,15 @@
     </style>
   </head>
   <body class="bg-nav">
+    {% if message %}
+    <script>
+      let p = "{{message}}"
+      window.addEventListener('load', 
+        function() { 
+          alert(p);
+        }, false);
+    </script>
+    {% endif %}
     <nav class ='navbar bg-nav'>
         <a href="" class="navbar-brand test-light"></a>
     </nav>
