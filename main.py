@@ -2,6 +2,7 @@ import numpy as np
 import pickle
 from flask import Flask, url_for, render_template, request, redirect, session, jsonify
 from flask_sqlalchemy import SQLAlchemy
+from flask_mail import Mail,Message
 import base64
 import tensorflow as tf
 from PIL import Image 
@@ -13,8 +14,16 @@ import h5py
 
 
 app = Flask(__name__)
+
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+app.config['MAIL_SERVER']='smtp.gmail.com'
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USERNAME'] = 'gauravvermaa07076@gmail.com'
+app.config['MAIL_PASSWORD'] = 'reiqgeaklkpiadxe'
+app.config['MAIL_USE_TLS'] = False
+app.config['MAIL_USE_SSL'] = True
 db = SQLAlchemy(app)
+mail = Mail(app)
 
 
 heart_model = pickle.load(open('model/heart_disease_model.pkl','rb'))
@@ -58,25 +67,39 @@ def preprocess(img):
 #url
 @app.route('/', methods=['GET', 'POST'])
 def login():
+    return render_template('login.html')
+
+
+@app.route("/main",methods= ['POST', 'GET'])
+def main():
     if request.method == 'GET':
-        return render_template('login.html')
+        return render_template('main.html')
     else:
         u = request.form['username']
         p = request.form['password']
         data = User.query.filter_by(username=u, password=p).first()
+        global username
+        username = data.username
         if data is not None:
             session['logged_in'] = True
-            return redirect(url_for('main'))
+            return render_template('main.html',data = data.username)
         return render_template('login.html', message="Incorrect Details")
 
+@app.route("/main/email",methods= ['POST', 'GET'])
+def email():
+     if request.method=='POST':
+          msg = Message("hey",sender='noreply@demo.co',recipients=[username])
+          msg.body = "Hey how are you? Is everything okay? google.com"
+          mail.send(msg)
+          return 'sent mail'
+     
+     
 
-
-@app.route('/main')
-def main():
-    return render_template("main.html")
 
 @app.route('/heart_disease')
 def heart():
+    
+    print("hello"+username)
     return render_template("heart.html")
 
 @app.route('/liver_disese')

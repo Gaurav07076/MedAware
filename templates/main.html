@@ -16,7 +16,7 @@
 </head>
 
 <body>
-
+    
     <body>
         <nav>
             <div class="navElemContainers flexlogo">
@@ -34,6 +34,9 @@
         </nav>
         <div class="home">
             <div class="subcontainer text">
+                <form action="{{ url_for('email') }}" method="POST">
+                    <button>Send email.</button>
+                </form>
                 <div class="headerline">
                     Check your symptoms and explore potential diseases through our <span>MAGICAL</span> ML trained model.
                 </div>
