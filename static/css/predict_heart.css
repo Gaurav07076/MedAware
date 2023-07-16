@@ -60,7 +60,7 @@ nav{
     padding:10px 15px ;
     border:1px solid white;
     border-radius: 4px;  
-    background-color: var(--mainred);
+    background-color: var(--maingreen);
     max-width: 255px;
     margin-top: 20px;
     color: var(--fontcolordark);
@@ -72,7 +72,7 @@ nav{
     transition: all 0.4s ease-in-out;
     
     scale: 1.02;
-    border:2px solid white;
+    border:2px solid var(--fontcolordark);
 }
 .content{
     margin: 40px 70px;
@@ -120,11 +120,11 @@ nav{
 .pointcontainer{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: left;
     margin: 60px 150px 0 150px;
     padding-bottom: 30px;
     border-bottom: 1.5px solid var(--mainred);
-    align-items: center;
+    align-items: left;
 }
 /* code for green text colour */
 .pointcontainergreen{
@@ -186,7 +186,7 @@ nav{
 .linksgreen a{
     text-decoration: none;
     text-shadow: 2px 2px 70px #4b4d4d;
-    background: -webkit-linear-gradient(0.30turn,#98d89f, #0f6f1a);
+    background: var(--maindgreen);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     position: relative;
@@ -195,7 +195,7 @@ nav{
 .linksgreen a:after{
     content: " ";
     position:absolute;
-    background: -webkit-linear-gradient(0.30turn,#98d89f, #0f6f1a);
+    background: var(--maindgreen);
     height: 2px;
     width: 0;
     left:0;
@@ -214,103 +214,4 @@ nav{
     width: 100%;
     transition: 0.5s;
 
-}
-/* code for green text colour  ENDS*/
-
-
-/* footer code starts here */
-footer{
-    display:flex;
-    align-items:center;
-    justify-content: center;
-    position: relative;
-    margin-top: 80px;
-    background:#111;
-    height:280px;
-    width:100vw;
-    font-family: "";
-    color:#fff;
-    
-}
-.footer-content{
-    display:flex;
-    align-items:center;
-    justify-content: center;
-    
-    flex-direction: column;
-    text-align: center;
-}
-
-.footer-bottom{
-    background: #000;
-    position: absolute;
-    bottom: 0;
-    width: 100vw;
-    padding: 20px 0;
-    text-align: center;
-}
-
-
-.footer-content h3{
-    font-size: 22px;
-    font-weight:400;
-    color:  var(--bg-light);
-    
-}
-
-.footer-content p{
-    max-width: 500px;
-    margin: 20px auto;
-    line-height: 28px;
-    font-size:14px;
-
-}
-.github{ 
-    width:20px;
-    height: 20px;
-}
-.socials{
-    list-style: none;
-    display: flex;
-    align-items:center;
-    justify-content: center;
-    margin:1rem 0 3rem 0;
-
-}
-.socials li{
-    margin: 0 10px;
-}
-.socials a{
-    text-decoration: none;
-    color: #fff;
-
-}
-.socials a i{
-    font-size:1.1rem;
-}
-.socials a:hover i{
-    color:aqua;
-}
-
-
-.footer-bottom p{
-    font-size:14px;
-    word-spacing:2px;
-    text-transform:capitalize;
-
-}
-.footer-bottom span{
-    
-    text-transform: uppercase;
-    opacity: 1;
-    font-weight: 200;
-}
-.footer-bottom span a{
-    text-decoration: none;
-    color: #fff;
-    opacity: 1;
-}
-.footer-bottom span a:hover{
-    color: #fff;
-    opacity: .7;
 }

@@ -347,7 +347,7 @@ nav.sticky{
   
 }
 .newsletter{
-    height: 140vh;
+    height: 120vh;
 
 }
 
@@ -557,20 +557,20 @@ select{
     width: 90%;
     margin-top: 30px;
     height: 1px;
-    background:var(--fontcolor);
+    background:var(--fontcolordark);
 
 }
 .headerinnovation{
     margin-top: 30px;
     font-size: 50px;
     font-weight:800; 
-    color:  var(--fontcolor);
+    color:  var(--fontcolordark);
    
 }
 .headerinnovation span{
     font-style: italic;
     margin-right: 4px;
-    background: -webkit-linear-gradient(0.30turn,var(--mainred), #f28888);
+    background: -webkit-linear-gradient(0.30turn,var(--maingreen), #f28888);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -581,7 +581,7 @@ select{
 }
 
 .verticalline{
-    border-left: 1.5px solid var(--mainred);
+    border-left: 1.5px solid var(--maingreen);
     padding-left: 20px;
     display: flex;
     flex-direction: column;
@@ -591,20 +591,22 @@ select{
     font-size:16rem;
     color: var(--fontcolor); 
     font-weight:700;
-    margin-right: 20px;
+    text-shadow: 4px 4px #000;
+    margin-right: 40px;
 }
 .thought_header{
     
     font-size: 40px;
     font-weight:800; 
-    color:  var(--fontcolor);
+    color:  var(--fontcolordark);
+    
     margin: 10px 0;
 }
 .thought_subtext{
     font-size: 25px;
     font-weight:400; 
     width: 75%;
-    color:  var(--fontcolor);
+    color:  var(--fontcolordark);
     padding: 30px 0px;
 }
 .fleximage{
@@ -629,7 +631,7 @@ select{
     font-size: 25px;
     font-weight:400; 
     width: 80%;
-    color:  var(--fontcolor);
+    color:  var(--fontcolordark);
     padding: 30px 0;
 }
 footer{

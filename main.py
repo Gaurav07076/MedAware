@@ -169,6 +169,22 @@ def predictPage_liver():
 
     return render_template('predict_liver.html', pred = pred)
 
+@app.route("/email_liver",methods= ['POST', 'GET'])
+def email_liver_pos():
+     if request.method=='POST':
+        msg = Message("Liver_results",sender='medaware@demo.co',recipients=[username])
+        msg.body = "GREAT! you are in good Health. Kudos! Your Liver seems healthy. You could follow the below suggestions for further"     
+        mail.send(msg)
+        return render_template('predict_liver.html', pred = 0, message="Mail sent")
+
+@app.route("/email_liver_neg",methods= ['POST', 'GET']) 
+def email_liver_neg():
+     if request.method=='POST':
+          msg = Message("Liver_results",sender='medaware@demo.co',recipients=[username])
+          msg.body = "Oopss!! There are chances you might be afflicted with a liver disorder . Go get your clinical tests done and consult with your doctor asap. There is no need to panic. It is just a prediction which may be even be incorrect."
+          mail.send(msg)
+          return render_template('predict_liver.html', pred = 1, message="Mail sent") 
+
 @app.route("/predict_ASD",methods= ['POST', 'GET'])
 def predictPage_ASD():
     try:
