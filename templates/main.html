@@ -113,80 +113,116 @@
 
         </div>
        
+      <!-- javascriptFuntion  News API-->
+        
+      <div>
+        
+        <script>
+          async function f() {
+            const res = await fetch(`https://newsapi.org/v2/top-headlines?country=in&category=health&apiKey=4578f91f961d4f7a9760456c71eafc34`);
+            const data = await res.json();
+            let news = [];
+            news = data.articles;
+            const Title1 = document.getElementsByClassName('newstile1')[0].innerHTML = news[0].title;
+            const Link1 = document.getElementsByClassName('link1')[0];
+            Link1.href = news[0].url;
+            const Title2 = document.getElementsByClassName('newstilesmall2')[0].innerHTML = news[1].title;
+            const Link2 = document.getElementsByClassName('link2')[0];
+            Link2.href = news[1].url;
+            const Title3 = document.getElementsByClassName('newstile3')[0].innerHTML = news[2].title;
+            const Link3 = document.getElementsByClassName('link3')[0];
+            Link3.href = news[2].url;
+            const Title4 = document.getElementsByClassName('newstilesmall4')[0].innerHTML = news[3].title;
+            const Link4 = document.getElementsByClassName('link4')[0];
+            Link4.href = news[3].url;
+            const Title5 = document.getElementsByClassName('newstile5')[0].innerHTML = news[4].title;
+            const Link5 = document.getElementsByClassName('link5')[0];
+            Link5.href = news[4].url;
+            const Title6 = document.getElementsByClassName('newstilesmall6')[0].innerHTML = news[5].title;
+            const Link6 = document.getElementsByClassName('link6')[0];
+            Link6.href = news[5].url;
+    
+          }
+          window.onload = function () {
+            f();
+          };
+        </script>
+      </div> 
 
-        <div class="newsletter" id="blog">
-            <div class="headerlinesmall">Medical Journals and Articles.</div>
-            <div class="newscontainer">
 
-                <div class="newscardbig">
-                    <div class="imagecard">
-                        <img src="{{url_for('static',filename='../static/resources/Doctors-cuate.svg')}}">
-                    </div>
-                    <div class="newstile">Here's how 10 popular diets scored for heart health...
-                    </div>
-                    <!-- <div class="newsdesc">subtext...</div> -->
-                    <div class="buttonsmall"><a href="https://www.heart.org/en/news/2023/04/27/heres-how-10-popular-diets-scored-for-heart-health"target="_blank">Read</a></div>
+    <div class="newsletter" id="blog">
+        <div class="headerlinesmall">Medical Journals and Articles.</div>
+        <div class="newscontainer">
+
+            <div class="newscardbig">
+                <div class="imagecard">
+                    <img src="{{url_for('static',filename='../static/resources/Doctors-cuate.svg')}}">
                 </div>
-
-                <div class="newscardsmall">
-                    <div class="imagecard">
-                        <img src="{{url_for('static',filename='../static/resources/Medicine-amico.svg')}}">
-                    </div>
-                    <div class="newstilesmall">New Research Establishes How and Why Western Diets High in Sugar and Fat Cause Liver Disease...</div>
-                    <!-- <div class="newsdesc">subtext...</div> -->
-                    <div class="buttonsmall"><a
-                            href="https://www.sciencedaily.com/releases/2023/03/230315132445.htm"
-                            target="_blank">Read</a></div>
+                <div class="newstile1">
                 </div>
-
-                <div class="newscardbig">
-                    <div class="imagecard">
-                        <img src="{{url_for('static',filename='../static/resources/Doctors-pana.svg')}}">
-                    </div>
-                    <div class="newstile">Risk of venous thromboembolism in non-respiratory and respiratory presentations of COVID-19 in critically ill patients....</div>
-                    <!-- <div class="newsdesc">subtext...</div> -->
-                    <div class="buttonsmall"><a
-                            href="https://iars.org/covid-19-newsletter/"
-                            target="_blank">Read</a></div>
-                </div>
-
-                
+                <!-- <div class="newsdesc">subtext...</div> -->
+                <div  class="buttonsmall"><a class="link1"
+                     href=""
+                     target="_blank">Read</a></div>
             </div>
-            <div class="newscontainerlower">
 
-                <div class="newscardsmall">
-                    <div class="imagecard">
-                        <img src="{{url_for('static',filename='../static/resources/Medicine-bro.svg')}}">
-                    </div>
-                    <div class="newstilesmall">Discrimination linked to higher risk of death, particularly from cardiovascular disease...</div>
-                    <!-- <div class="newsdesc">subtext...</div> -->
-                    <div class="buttonsmall"><a
-                            href="https://www.heart.org/en/news/2023/04/05/discrimination-linked-to-higher-risk-of-death-particularly-from-cardiovascular-disease"
-                            target="_blank">Read</a></div>
+            <div class="newscardsmall">
+                <div class="imagecard">
+                    <img src="{{url_for('static',filename='../static/resources/Medicine-amico.svg')}}">
                 </div>
+                <div class="newstilesmall2"></div>
+                <!-- <div class="newsdesc">subtext...</div> -->
+                <div class="buttonsmall"><a class="link2"
+                        href=""
+                        target="_blank">Read</a></div>
+            </div>
 
-                <div class="newscardbig up30">
-                    <div class="imagecard">
-                        <img src="{{url_for('static',filename='../static/resources/Doctors-pana.svg')}}">
-                    </div>
-                    <div class="newstile">Incurable Liver Disease May Prove Curable... </div>
-                    <!-- <div class="newsdesc">subtext...</div> -->
-                    <div class="buttonsmall"><a
-                            href="https://www.sciencedaily.com/releases/2023/01/230105083044.htm"
-                            target="_blank">Read</a></div>
+            <div class="newscardbig">
+                <div class="imagecard">
+                    <img src="{{url_for('static',filename='../static/resources/Doctors-pana.svg')}}">
                 </div>
+                <div class="newstile3"></div>
+                <!-- <div class="newsdesc">subtext...</div> -->
+                <div class="buttonsmall"><a class="link3"
+                        href=""
+                        target="_blank">Read</a></div>
+            </div>
 
-                <div class="newscardsmall">
-                    <div class="imagecard">
-                        <img src="{{url_for('static',filename='../static/resources/Medicine-amico.svg')}}">
-                    </div>
-                    <div class="newstilesmall">What do India’s SMEs need as they recover from the pandemic?...</div>
-                    <!-- <div class="newsdesc">subtext...</div> -->
-                    <div class="buttonsmall"><a
-                            href="https://idronline.org/article/leadership-talent/what-do-indias-smes-need-as-they-recover-from-the-pandemic/"
-                            target="_blank">Read</a></div>
+            
+        </div>
+        <div class="newscontainerlower">
+
+            <div class="newscardsmall">
+                <div class="imagecard">
+                    <img src="{{url_for('static',filename='../static/resources/Medicine-bro.svg')}}">
                 </div>
+                <div class="newstilesmall4"></div>
+                <!-- <div class="newsdesc">subtext...</div> -->
+                <div class="buttonsmall"><a class="link4"
+                        href=""
+                        target="_blank">Read</a></div>
+            </div>
 
+            <div class="newscardbig up30">
+                <div class="imagecard">
+                    <img src="{{url_for('static',filename='../static/resources/Doctors-pana.svg')}}">
+                </div>
+                <div class="newstile5"> </div>
+                <!-- <div class="newsdesc">subtext...</div> -->
+                <div class="buttonsmall"><a  class="link5"
+                        href=""
+                        target="_blank">Read</a></div>
+            </div>
+
+            <div class="newscardsmall">
+                <div class="imagecard">
+                    <img src="{{url_for('static',filename='../static/resources/Medicine-amico.svg')}}">
+                </div>
+                <div class="newstilesmall6"></div>
+                <!-- <div class="newsdesc">subtext...</div> -->
+                <div class="buttonsmall"><a class="link6"
+                        href=""
+                        target="_blank">Read</a></div>
             </div>
         </div>
         <footer>
