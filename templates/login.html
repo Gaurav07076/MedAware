@@ -7,6 +7,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Rampart+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}">
 
     <!-- Bootstrap CSS -->
@@ -91,9 +94,9 @@
           flex-direction: column; 
       }
           h1 {
-              margin: 0;
+              margin: 10px 0;
               letter-spacing: -.15rem;
-              font-size: 3rem;
+              font-size: 2rem;
               font-weight: 500;
 
           }
@@ -106,16 +109,19 @@
                       text-rendering: optimizeLegibility!important;
                       white-space: pre;
                       margin-top: 20px;
-                      margin-left: 220px;
+                      margin-left: 240px;
                       color: var(--bg-black);
+                      
+                      font-family: 'Rampart One', cursive;
+                      letter-spacing: 2px;
                       font-size: 4rem;
                       font-style: italic;
                       font-weight: 800;
                       position: absolute;
                       transform: translate(-50%, -10%);
                       opacity: 0;
-                      text-align: left;
-                      display: block;
+                      
+                      
                       top: 0;
             }  
                   
@@ -212,6 +218,7 @@
              >
             Welcome to 
             <span style="
+            font-family: 'Rampart One', cursive;
                       font-size:80px;
                       font-weight:700;
                       color: #40a879;
@@ -222,7 +229,7 @@
             </h1>
             <div class="texto">
                 <h1>
-                    Brings to You 
+                    We brings to You 
                     <br> 
                     <span class="containerN">
                         <span class="word">Better Health.</span>
