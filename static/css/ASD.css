@@ -74,12 +74,13 @@ nav.sticky{
    
 }
 .logo{
+    font-family: 'Rampart One', cursive;
     z-index: 3;
-    margin-left: -90px;
-    font-size: 28px;
+    margin-left: -100px;
+    font-size: 33px;
     font-weight:900;
     font-style: italic;
-    color:  var(--maingreen);
+    color:  var(--maindgreen);
 }
 
 
