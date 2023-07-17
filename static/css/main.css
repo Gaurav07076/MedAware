@@ -254,6 +254,19 @@ html{
     height: 2px;
 
 }
+.inputval{
+    margin: 10px 30px 100px 30px;
+    display: flex;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 30px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    
+}
 .searchHeader{
     margin-top: 15px;
     font-size:26px;
