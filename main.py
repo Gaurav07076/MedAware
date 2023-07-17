@@ -247,6 +247,22 @@ def predictPage_diabetes():
 
     return render_template('predict_diabetes.html', pred = pred)
 
+@app.route("/email_diabetes",methods= ['POST', 'GET'])
+def email_di_pos():
+     if request.method=='POST':
+        msg = Message("Diabetes_results",sender='medaware@demo.co',recipients=[username])
+        msg.body = "Great! Your looks to be in great condition! Here is what you can do to continue being healthy heart\n 1. Take a 10-minute walk. If you don't exercise at all, a brief walk is a great way to start.\n\n2. Give yourself a lift. Lifting a hardcover book or a two-pound weight a few times a day can help tone your arm muscles.\n\n3. Eat one extra fruit or vegetable a day.\n\n4. Make breakfast count. Start the day with some fruit and a serving of whole grains, like oatmeal, bran flakes, or whole-wheat toast.\n\n5. Have a handful of nuts. Walnuts, almonds, peanuts, and other nuts are good for your heart.\n\n6. Sample the fruits of the sea. Eat fish or other types of seafood instead of red meat once a week. It's good for the heart, the brain, and the waistline.\n\n7. Breathe deeply. Try breathing slowly and deeply for a few minutes a day. It can help you relax.\n\n8. Wash your hands often. Scrubbing up with soap and water often during the day is a great way to protect your heart and health. The flu, pneumonia, and other infections can be very hard on the heart.\n\n9. Count your blessings. Taking a moment each day to acknowledge the blessings in your life is one way to start tapping into other positive emotions. These have been linked with better health, longer life, and greater well-being, just as their opposites — chronic anger, worry, and hostility."     
+        mail.send(msg)
+        return render_template('predict_diabetes.html', pred = 0, message="Mail sent")
+
+@app.route("/email_diabetes_neg",methods= ['POST', 'GET']) 
+def email_di_neg():
+     if request.method=='POST':
+          msg = Message("Heart_results",sender='medaware@demo.co',recipients=[username])
+          msg.body = "Oopss!! There are chances you might be suffering from diabetes. Go get your clinical tests done and consult with your doctor asap. There is no need to panic. It is just a prediction which may be even be incorrect."
+          mail.send(msg)
+          return render_template('predict_diabetes.html', pred = 1, message="Mail sent") 
+
 @app.route("/predict_covid", methods=["POST"])
 def predict_covid():
 	print('HERE')
