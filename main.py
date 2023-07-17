@@ -10,6 +10,7 @@ import cv2
 import io
 from keras.models import load_model
 import h5py
+import wikipedia
 
 
 
@@ -101,9 +102,24 @@ def register():
         return render_template('register.html')
 
 
-@app.route('/main')
+@app.route('/main', methods=['GET', 'POST'])
 def main():
-    return render_template("main.html")
+    #render_template('main.html')
+    if request.method == 'GET':
+        return render_template("main.html")
+        
+    
+    else:
+        try:
+            query = request.form['search']
+            result = wikipedia.summary(query,sentences = 10)
+            return render_template("main.html",result=result,query = query, pred = 1)
+        
+        except:
+            query = request.form['search']
+            message = "Your search - " + query + " did not match any document"
+            return render_template("main.html",message=message)
+             
 
 @app.route('/heart_disease')
 def heart():
