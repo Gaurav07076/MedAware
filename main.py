@@ -216,6 +216,22 @@ def predictPage_ASD():
 
     return render_template('predict_ASD.html', pred = pred)
 
+@app.route("/email_asd",methods= ['POST', 'GET'])
+def email_asd_pos():
+     if request.method=='POST':
+        msg = Message("Autisum Disorder results",sender='medaware@demo.co',recipients=[username])
+        msg.body = "Great! Your look to be in great condition! Here is what you can do to avoid this disorder. \n\nLive healthy. Have regular check-ups, eat well-balanced meals, and exercise. \nMake sure you have good prenatal care, and take all recommended vitamins and supplements. \nDon’t take drugs during pregnancy. Ask your doctor before you take any medication. This is especially true for some anti-seizure drugs. \nAvoid alcohol. Say “no” to that glass of wine -- and any kind of alcoholic beverage -- while you’re pregnant. Seek treatment for existing health conditions. If you've been diagnosed with celiac disease or PKU, follow your doctor’s advice for keeping them under control. \nGet vaccinated. Make sure you get the German measles (rubella) vaccine before you get pregnant. It can prevent rubella-associated autism."     
+        mail.send(msg)
+        return render_template('predict_ASD.html', pred = 0, message="Mail sent")
+
+@app.route("/email_asd_neg",methods= ['POST', 'GET']) 
+def email_asd_neg():
+     if request.method=='POST':
+          msg = Message("Autisum Disorder results",sender='medaware@demo.co',recipients=[username])
+          msg.body = "Oopss!! There are chances you might be suffering from Autism sprectrum disorder. Go get your clinical tests done and consult with your doctor asap. There is no need to panic. It is just a prediction which may be even be incorrect."
+          mail.send(msg)
+          return render_template('predict_ASD.html', pred = 1, message="Mail sent") 
+
 @app.route("/predict_diabetes",methods= ['POST', 'GET'])
 def predictPage_diabetes():
     try:
