@@ -378,20 +378,28 @@ select{
 .socials a:hover i{
     color:aqua;
 }
+.footer-content{
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    
+    flex-direction: column;
+    text-align: center;
+}
 footer{
+    display:flex;
+    align-items:center;
+    justify-content: center;
     position: relative;
     margin-top: 70px;
     background:#111;
-    height:300px;
+    height:280px;
     width:100vw;
     font-family: "";
-    padding-top:20px;  
     color:#fff;
-
     
 }
 .footer-bottom{
-    
     background: #000;
     position: absolute;
     bottom: 0;
@@ -399,13 +407,48 @@ footer{
     padding: 20px 0;
     text-align: center;
 }
-.footer-content{
-    margin-top: 30px;
-    display:flex;
+
+
+
+.footer-content h3{
+    font-size: 22px;
+    font-weight:400;
+    color:  var(--bg-light);
+    
+}
+
+.footer-content p{
+    max-width: 500px;
+    margin: 20px auto;
+    line-height: 28px;
+    font-size:14px;
+
+}
+.github{ 
+    width:20px;
+    height: 20px;
+}
+.socials{
+    list-style: none;
+    display: flex;
     align-items:center;
     justify-content: center;
-    flex-direction: column;
-    text-align: center;
+    margin:1rem 0 3rem 0;
+
+}
+.socials li{
+    margin: 0 10px;
+}
+.socials a{
+    text-decoration: none;
+    color: #fff;
+
+}
+.socials a i{
+    font-size:1.1rem;
+}
+.socials a:hover i{
+    color:aqua;
 }
 
 

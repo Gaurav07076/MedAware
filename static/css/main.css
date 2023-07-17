@@ -537,7 +537,7 @@ select{
   
 }
 .innovation_section{
-    height: 110vh;
+    /* height: 110vh; */
     width: 100%;
     padding:20px 70px;
     display: flex;
@@ -634,20 +634,28 @@ select{
 }
 
 
+.footer-content{
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    
+    flex-direction: column;
+    text-align: center;
+}
 footer{
+    display:flex;
+    align-items:center;
+    justify-content: center;
     position: relative;
     margin-top: 70px;
     background:#111;
-    height:300px;
+    height:280px;
     width:100vw;
     font-family: "";
-    padding-top:20px;  
     color:#fff;
-
     
 }
 .footer-bottom{
-    
     background: #000;
     position: absolute;
     bottom: 0;
@@ -655,19 +663,14 @@ footer{
     padding: 20px 0;
     text-align: center;
 }
-.footer-content{
-    margin-top: 30px;
-    display:flex;
-    align-items:center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-}
+
+
+
 .footer-content h3{
-    font-size:1.8rem;
-    font-weight: 400;
-    text-transform: capitalize;
-    line-height: 3rem;
+    font-size: 22px;
+    font-weight:400;
+    color:  var(--bg-light);
+    
 }
 
 .footer-content p{
@@ -677,7 +680,10 @@ footer{
     font-size:14px;
 
 }
-
+.github{ 
+    width:20px;
+    height: 20px;
+}
 .socials{
     list-style: none;
     display: flex;
@@ -723,7 +729,6 @@ footer{
     color: #fff;
     opacity: .7;
 }
-
 /* 
 desease card and routing 
 to other pages section
