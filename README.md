@@ -51,7 +51,7 @@ The main objective is to create a more scalable, robust and evolving model. The 
 
 Overall, MedAware strives to democratize healthcare by providing an affordable and reliable disease prediction solution that can be accessed conveniently by anyone. By becoming a trusted resource for disease prediction, MedAware aims to reduce healthcare costs, promote early detection of diseases, and enhance the overall well-being of individuals, establishing itself as the go-to platform for individuals seeking a preliminary health assessment before considering a visit to the hospital.
 
-![Screenshot (222)](https://github.com/Gaurav07076/MedAware/assets/103797867/b2a06773-edd4-49b3-b805-76d5012259cd)
+
 ## Features
 
 - A fully functional web application ready to be deployed
