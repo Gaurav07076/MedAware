@@ -128,9 +128,10 @@ html{
 
 
 .growing-search {
-    padding: 5px 5px 5px 5px;
+    /* padding: 5px 5px 5px 5px; */
     border-radius: 15px;
     background: #fff;
+    
   }
   
   .growing-search div {
@@ -190,7 +191,7 @@ html{
 
 .searchContainer{
     width:200px;
-    height:40px;
+    height:10px;
     border-radius: 20px;
     background-color: var(--fontcolor);
     z-index: 99;
@@ -495,7 +496,7 @@ html{
     background-color: var(--mainred);
 }
 form{
-    margin-top:50px;
+   padding: 3px;
     color: var(--fontcolor);
     font-size: 20px;
     font-weight: 600;
