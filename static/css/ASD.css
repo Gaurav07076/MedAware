@@ -35,7 +35,7 @@ a:hover{
     width:450px;
     font-size: 20px;
     align-items: center;
-    justify-content: space-between;
+    justify-content:space-around;
     color:  var(--fontcolordark);
 }
 .navElemContainers img{
@@ -404,6 +404,7 @@ footer{
     border-radius: 4px;
     max-width: 250px;
     margin-top: 20px;
+    margin-right: 20px;
     font-size: 17px;
     font-weight:600;  
     transition: all 0.6s ease-in-out;
