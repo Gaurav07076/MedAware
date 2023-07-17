@@ -98,6 +98,9 @@ nav.sticky{
     font-size: 18px;
     letter-spacing:0.5px;
 }
+html{
+    scroll-behavior: smooth;
+}
 .navItem:after{
     content: " ";
     position:absolute;
