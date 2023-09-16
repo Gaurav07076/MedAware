@@ -15,7 +15,7 @@ import wikipedia
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://hackathon_1shg_user:xf83AoqlmOiElqW3rgzgG4PhRG7oH6kQ@dpg-cjp2hlm1208c73c714tg-a.singapore-postgres.render.com:5432/sih'
 app.config['MAIL_SERVER']='smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USERNAME'] = 'gauravvermaa07076@gmail.com'
@@ -39,10 +39,25 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(100), unique=True)
     password = db.Column(db.String(100))
+    patients = db.relationship('Patient', backref='doctor_user')
 
     def init(self, username, password):
         self.username = username
         self.password = password
+
+# class Patient(db.model)
+
+class Patient(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    doctor = db.Column(db.Integer, db.ForeignKey('user.id'))
+    email = db.Column(db.String(100), unique=True)
+    name = db.Column(db.String(100))
+    age = db.Column(db.String(10))
+    phone = db.Column(db.String(15))
+    liver_disease = db.Column(db.Integer,default=0)
+    heart_disease = db.Column(db.Integer,default=0)
+    diabetes = db.Column(db.Integer,default=0)
+
 
 
 def predict(model,values,dic):
@@ -77,8 +92,41 @@ def login():
         if data: username = data.username
         if data is not None:
             session['logged_in'] = True
-            return redirect(url_for('main'))
+            session['email'] = username
+            return redirect(url_for('admin'))
         return render_template('login.html', message="Incorrect Details! If not registered.. Please first do so!")
+
+@app.route('/admin',methods=['GET','POST'])
+def admin():
+    try:
+        print(session.get("email"))
+    except Exception as e:
+        print(e) 
+    
+    if request.method == 'GET':
+        return render_template('patient.html')
+    
+
+
+    doctor_id = User.query.filter_by(username=session.get("email")).first().id
+    print(doctor_id)
+    email = request.form['email']
+    name = request.form['name']
+    age = request.form['age']
+    phone = request.form['phone']
+
+    db.session.add(Patient(doctor=doctor_id,email=email, name=name,age=age,phone=phone))
+    db.session.commit()
+
+    return {"message":"patient created"}
+    
+@app.route('/patients',methods=['GET','POST'])
+def patients():
+    doctor_id = User.query.filter_by(username=session.get("email")).first()
+    patients = doctor_id.patients
+    print(patients)
+    return render_template('patients.html',patients = patients)
+
 
 @app.route('/register/', methods=['GET', 'POST'])
 def register():
@@ -111,14 +159,18 @@ def main():
     
     else:
         try:
-            query = request.form['search']
-            result = wikipedia.summary(query,sentences = 10)
-            return render_template("main.html",result=result,query = query, pred = 1)
+            patient_id = request.get_json()
+            print(patient_id)
+            session["patient_id"]=patient_id
+           
+            return render_template('main.html')
+
+            # result = wikipedia.summary(query,sentences = 10)
+            # return render_template("main.html",result=result,query = query, pred = 1)
         
         except:
-            query = request.form['search']
-            message = "Your search - " + query + " did not match any document"
-            return render_template("main.html",message=message)
+            print('except')
+            return render_template("main.html")
              
 
 @app.route('/heart_disease')
@@ -149,12 +201,30 @@ def predictPage_heart():
             to_predict_dict = request.form.to_dict()
             to_predict_list = list(map(float, list(to_predict_dict.values())))
             pred = predict(heart_model,to_predict_list, to_predict_dict)
-            print(pred)
+  
+            patient_id = session.get('patient_id')['patient']
+            patient_id = int(patient_id)
+            print(patient_id)
+            print(type(patient_id))
+
+            patient = Patient.query.filter_by(id=patient_id).first()
+            print(patient)
+
+            if patient:
+                patient.heart_disease = int(pred)
+                db.session.commit()
+        
+            
+            return render_template('predict_heart.html', pred = pred)
+            # if patient:
+            #    patient.heart_disease = pred
+            #    db.session.commit()
+
     except:
         message = "Please enter valid Data! You may have missed some data to be filled!"
         return render_template("heart.html", message = message)
 
-    return render_template('predict_heart.html', pred = pred)
+    
 
 @app.route("/email_heart",methods= ['POST', 'GET'])
 def email_heart_pos():
